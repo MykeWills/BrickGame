@@ -35,18 +35,18 @@ public class BrickSystem : MonoBehaviour
                 }
         }
     }
-    void DamageBrick()
-    {
-        brickHealth -= 1;
-        SetRoutine(flashRoutine, Flash());
-        if(brickHealth <= 0 && !broken)
-        {
-            broken = true;
-            brickHealth = 0;
+    //void DamageBrick()
+    //{
+    //    brickHealth -= 1;
+    //    SetRoutine(flashRoutine, Flash());
+    //    if(brickHealth <= 0 && !broken)
+    //    {
+    //        broken = true;
+    //        brickHealth = 0;
 
-        }
+    //    }
 
-    }
+    //}
     public void SetRoutine(IEnumerator routine, IEnumerator enumerator)
     {
         if (routine != null)
