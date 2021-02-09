@@ -17,12 +17,18 @@ public class BrickSystem : MonoBehaviour
     private Transform thisBrick;
     private int brickHealth = 1;
     private bool broken = false;
+
+
+   
+
     private void Start()
-    {
+    { 
         thisBrick = transform.GetChild(0);
         meshRend = thisBrick.GetComponent<MeshRenderer>();
         SelectBrickType(brickType);
+       
     }
+  
     private void SelectBrickType(Brick type)
     {
         switch (type)
@@ -82,6 +88,8 @@ public class BrickSystem : MonoBehaviour
             SetRoutine(flashRoutine, Flash());
         if (brickHealth < 1 && !broken)
         {
+            PlayerController p = PlayerController.player.GetComponent<PlayerController>();
+            p.AddScore(235);
             BoxCollider col = thisBrick.GetComponent<BoxCollider>();
             col.enabled = false;
             broken = true;
